@@ -3,12 +3,10 @@
 # Skilaverkefni 12
 
 from bottle import *
-from sanitize import sanitize
-import pymysql
+import os
 
 @route("/")
 def index():
     return "Kormákur er kominn á Heroku."
     
-
-run(host="0.0.0.0", port="argv[1]")
+run(host='0.0.0.0', port=os.environ.get('PORT'))
